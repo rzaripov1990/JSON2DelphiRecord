@@ -1,7 +1,7 @@
 # JSON2DelphiRecord
 [FireMonkey] make records from json data
 
-##### ERROR №1
+##### ERROR №1 (The array elements must be in the format {"key": value})
 ```
 {
   "telephones": ["000000000", "111111111111"]
@@ -16,7 +16,7 @@
 
 ----------
 
-##### ERROR №2
+##### ERROR №2 (the array should be named)
 ```
 [{"index":3},{"index":4},{"index":2},{"index":1}]
 ```
@@ -24,6 +24,46 @@
 ```
 {
   "data": [{"index":3},{"index":4},{"index":2},{"index":1}]
+}
+```
+
+##### ERROR №3 (NULL not supported)
+```
+{
+  "menu":  
+  {
+    "header":"xProgress SVG Viewer",
+    "items":[
+      {
+        "id":"OpenNew",
+        "label":"Open New"      
+      },
+      null,
+      {
+        "id":"ZoomIn",
+        "label":"Zoom In"      
+      }    
+    ]  
+  }
+}
+```
+***Correct***
+```
+{
+  "menu":  
+  {
+    "header":"xProgress SVG Viewer",
+    "items":[
+      {
+        "id":"OpenNew",
+        "label":"Open New"      
+      },
+      {
+        "id":"ZoomIn",
+        "label":"Zoom In"      
+      }    
+    ]  
+  }
 }
 ```
 
