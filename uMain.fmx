@@ -1,0 +1,194 @@
+object FormMain: TFormMain
+  Left = 0
+  Top = 0
+  Caption = 'JSON2Record (https://github.com/rzaripov1990)'
+  ClientHeight = 429
+  ClientWidth = 759
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Rectangle1: TRectangle
+    Align = Top
+    Fill.Color = xFF304658
+    Sides = []
+    Size.Width = 759.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    object lbTitle: TLabel
+      Align = Client
+      StyledSettings = [Family, Style]
+      Size.Width = 759.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 25.000000000000000000
+      TextSettings.FontColor = claWhite
+      TextSettings.HorzAlign = Center
+      Text = 'JSON2Record'
+    end
+  end
+  object Layout1: TLayout
+    Align = Client
+    Margins.Left = 8.000000000000000000
+    Margins.Top = 8.000000000000000000
+    Margins.Bottom = 8.000000000000000000
+    Size.Width = 455.000000000000000000
+    Size.Height = 363.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object mJSON: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      TextSettings.WordWrap = True
+      Align = Top
+      Position.Y = 25.000000000000000000
+      Size.Width = 455.000000000000000000
+      Size.Height = 143.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Viewport.Width = 451.000000000000000000
+      Viewport.Height = 139.000000000000000000
+    end
+    object mRecord: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      ReadOnly = True
+      TextSettings.WordWrap = True
+      Align = Client
+      Size.Width = 455.000000000000000000
+      Size.Height = 157.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Viewport.Width = 451.000000000000000000
+      Viewport.Height = 153.000000000000000000
+    end
+    object Splitter1: TSplitter
+      Align = Top
+      Cursor = crVSplit
+      MinSize = 20.000000000000000000
+      Position.Y = 168.000000000000000000
+      Size.Width = 455.000000000000000000
+      Size.Height = 10.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object Label2: TLabel
+      Align = Top
+      StyledSettings = [Family, Style, FontColor]
+      Margins.Right = 8.000000000000000000
+      Size.Width = 447.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 21.000000000000000000
+      Text = 'JSON Source'
+      object sbSourceClear: TSpeedButton
+        Align = Right
+        Position.X = 415.000000000000000000
+        Size.Width = 32.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'cleareditbutton'
+        OnClick = sbSourceClearClick
+      end
+      object sbRunView: TSpeedButton
+        Align = Right
+        Margins.Right = 8.000000000000000000
+        Position.X = 375.000000000000000000
+        Size.Width = 32.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'playtoolbutton'
+        OnClick = sbRunViewClick
+      end
+    end
+    object Label3: TLabel
+      Align = Top
+      StyledSettings = [Family, Style, FontColor]
+      Margins.Right = 8.000000000000000000
+      Position.Y = 178.000000000000000000
+      Size.Width = 447.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 21.000000000000000000
+      Text = 'Delphi Record'
+      object sbCopy: TSpeedButton
+        Align = Right
+        StyledSettings = [Family, FontColor]
+        Position.X = 352.000000000000000000
+        Size.Width = 95.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Copy'
+        TextSettings.Font.Size = 15.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        OnClick = sbCopyClick
+      end
+    end
+  end
+  object Layout2: TLayout
+    Align = Right
+    Margins.Top = 8.000000000000000000
+    Margins.Right = 8.000000000000000000
+    Margins.Bottom = 8.000000000000000000
+    Position.X = 473.000000000000000000
+    Position.Y = 58.000000000000000000
+    Size.Width = 278.000000000000000000
+    Size.Height = 363.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object mJSONView: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      ReadOnly = True
+      TextSettings.WordWrap = True
+      Align = Client
+      Size.Width = 278.000000000000000000
+      Size.Height = 144.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Viewport.Width = 274.000000000000000000
+      Viewport.Height = 140.000000000000000000
+    end
+    object Label1: TLabel
+      Align = Top
+      StyledSettings = [Family, Style, FontColor]
+      Margins.Right = 8.000000000000000000
+      Size.Width = 270.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 21.000000000000000000
+      Text = 'JSON Viewer'
+    end
+    object mLog: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      ReadOnly = True
+      Align = Bottom
+      Position.Y = 179.000000000000000000
+      Size.Width = 278.000000000000000000
+      Size.Height = 184.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Viewport.Width = 274.000000000000000000
+      Viewport.Height = 180.000000000000000000
+    end
+    object Splitter3: TSplitter
+      Align = Bottom
+      Cursor = crVSplit
+      MinSize = 20.000000000000000000
+      Position.Y = 169.000000000000000000
+      Size.Width = 278.000000000000000000
+      Size.Height = 10.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object Splitter2: TSplitter
+    Align = Right
+    Cursor = crHSplit
+    MinSize = 20.000000000000000000
+    Position.X = 463.000000000000000000
+    Position.Y = 50.000000000000000000
+    Size.Width = 10.000000000000000000
+    Size.Height = 379.000000000000000000
+    Size.PlatformDefault = False
+  end
+end
