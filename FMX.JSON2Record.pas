@@ -39,6 +39,8 @@ implementation
 const
   TypeToField: array [TDataType] of string = ('nil', 'null', 'TObject', 'TArray', 'string', 'integer', 'float',
     'boolean', 'string', 'string', 'string');
+
+  cSign = 'Record';
   cIndent = '  ';
   cRecordBegin = 'TmyTypeRecord = record';
   cRecordSub = 'TmyType%s = record';
@@ -116,6 +118,7 @@ var
   LValue: string;
   I: integer;
 begin
+  Result := '';
   TmyJSON2Record.FArrays.Clear;
   TmyJSON2Record.FOutText.Clear;
   TmyJSON2Record.FObjects.Clear;
@@ -128,7 +131,6 @@ begin
     exit;
   end;
 
-  Result := '';
   try
     LObj := SO(aJSON);
   except
@@ -138,7 +140,7 @@ begin
 
   try
     TmyJSON2Record.EnumObj(LObj);
-    TmyJSON2Record.EnumFields('Record', LObj);
+    TmyJSON2Record.EnumFields(cSign, LObj);
 
     for LKey in TmyJSON2Record.FObjects.Keys do
     begin
@@ -150,8 +152,12 @@ begin
     end;
 
     LValue := '';
-    for LKey in TmyJSON2Record.FOutText.Values do
-      LValue := LValue + LKey;
+    for LKey in TmyJSON2Record.FOutText.Keys do
+    begin
+      if LKey <> cSign then
+        LValue := LValue + TmyJSON2Record.FOutText.Items[LKey];
+    end;
+    LValue := LValue + TmyJSON2Record.FOutText.Items[cSign];
 
     for LKey in TmyJSON2Record.FOutText.Keys do
     begin
