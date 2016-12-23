@@ -58,8 +58,8 @@ var
   LEnum: TSuperEnumerator<IJSONPair>;
   LKey, LKeyUp: string;
 begin
-  if (aValue.DataType = TDataType.dtNull) or (aValue.DataType = TDataType.dtNil) or (aValue = nil) then
-    exit;
+  // if (aValue.DataType = TDataType.dtNull) or (aValue.DataType = TDataType.dtNil) or (aValue = nil) then
+  // exit;
 
   LKey := aKey;
 
@@ -69,8 +69,8 @@ begin
   LEnum := aValue.GetEnumerator;
   while LEnum.MoveNext do
   begin
-    if (LEnum.GetCurrent.DataType = TDataType.dtNull) or (LEnum.GetCurrent.DataType = TDataType.dtNil) then
-      Continue;
+    // if (LEnum.GetCurrent.DataType = TDataType.dtNull) or (LEnum.GetCurrent.DataType = TDataType.dtNil) then
+    // Continue;
     TmyJSON2Record.FOutText.AddOrSetValue(LKey, TmyJSON2Record.FOutText.Items[LKey] + sLineBreak + Format(cRecordField,
       [LEnum.GetCurrent.Name, TypeToField[LEnum.GetCurrent.DataType]]));
   end;
